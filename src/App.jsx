@@ -12,6 +12,7 @@ import Admin from './pages/Admin/Admin';
 import Home from './pages/Home/Home';
 import Addmonument from './components/Addmonument/Addmonument';
 import Bigcard from './components/bigcard/bigcard';
+import Adduserimage from './components/Adduserimage/Adduserimage';
 
 
 function App() {
@@ -20,13 +21,14 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/home" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/resetpassword" element={<ForgotPassword/>} />
-          <Route path="/admin" element={<Admin/>} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/resetpassword" element={<ForgotPassword />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/addmonument" element={<Addmonument />} />
           <Route path="/bigcard" element={<Bigcard />} />
+          <Route path="/adduserimage" element={<Adduserimage />} />
         </Routes>
       </Router>
     </div>
