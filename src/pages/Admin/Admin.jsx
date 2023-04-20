@@ -1,9 +1,11 @@
 import React from 'react'
 import "./Admin.css"
+import { Link } from 'react-router-dom'
 function Admin() {
   return (
     <div className='adminPage'>
-      This is admin page
+      <Link to="/addmonument">Add monument</Link>
+      <Link to="checklogs">Check Logs</Link>
     </div>
   )
 }
