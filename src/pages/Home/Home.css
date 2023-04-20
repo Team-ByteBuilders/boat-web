@@ -24,3 +24,9 @@
     width: 100vw;
     justify-content: space-around;
 }
+
+.loading {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-top: 8rem;
+}

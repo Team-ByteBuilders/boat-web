@@ -1,16 +1,27 @@
-.card1 {
+/* .card1 {
     display: flex;
-        flex-direction: column;
-        width: 50%;
-        height: 60%;
-        background-color:white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-        padding: 0.7rem;
-        margin: 10px;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-        justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 0.7rem;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 700px;
+}
+
+.widthHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 760px;
+    width: 100%;
 }
 
 .maindiv {
@@ -19,44 +30,64 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    }  
-.bigcardimage{
-    width: 78%;
+    height: 100vh;
+}
+
+.bigcardimage {
+    width: 100%;
     display: flex;
     justify-self: center;
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
+    max-width: 750px;
 }
-.bigcardname{
-    font-size: 2rem;
+
+.bigcardname {
+    font-size: 1.3rem;
     font-weight: 800;
-    color:black;
+    color: black;
     margin: 0;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.monumenthistory{
+
+.monumenthistory {
     font-size: 1rem;
     font-weight: 500;
-    color:black;
+    color: black;
     margin: 0;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
     margin-left: 2rem;
-    text-align:start;
+    text-align: start;
 }
 
-.hidemonumenthistory{
+.hidemonumenthistory {
     display: none;
 }
 
-.readMore{
+.readMore {
+    background-color: #4E9CAF;
+    border: none;
+    border-radius: 0.2rem;
+    width: 17%;
+    height: 2rem;
+    color: white;
+    margin-right: 0.7vw;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: small;
+    animation: zoom-in-zoom-out 1s ease infinite;
+    cursor: pointer;
+    margin: 0.5rem auto;
+}
+
+.readLess {
     background-color: #4E9CAF;
     border: none;
     border-radius: 0.2rem;
@@ -72,7 +103,15 @@
     margin: 0.5rem auto;
 }
 
-.readLess{
+.hideReadMore {
+    display: none;
+}
+
+.hideReadLess {
+    display: none;
+}
+
+.bookbutton {
     background-color: #4E9CAF;
     border: none;
     border-radius: 0.2rem;
@@ -85,41 +124,122 @@
     font-size: small;
     animation: zoom-in-zoom-out 1s ease infinite;
     cursor: pointer;
-    margin: 0.5rem auto;
+    margin-left: auto;
 }
 
-.hideReadMore{
+.price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    text-align: start;
+} */
+
+.maindiv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.innerCard {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1.5rem;
+    display: flex;
+    /* justify-content: center;1 */
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    max-height: 95vh;
+    overflow-y: scroll;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.maindiv ::-webkit-scrollbar{
     display: none;
 }
 
-.hideReadLess{
-    display: none;
+.innerCardHeading {
+    font-weight: 800;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
 }
 
-.bookbutton{
+.innerCard img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    min-width: 500px;
+}
+
+.innerCardButton {
     background-color: #4E9CAF;
-        border: none;
-        border-radius: 0.2rem;
-        width: 17%;
-        height: 2.2vw;
-        color: white;
-        margin-right: 0.7vw;
-        margin-top: 1.8vw;
-        margin-bottom: 2vw;
-        font-size: small;
-        animation: zoom-in-zoom-out 1s ease infinite;
-        cursor: pointer;
-        margin-left: auto;
+    border: none;
+    border-radius: 0.2rem;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0.5rem 1rem;
 }
+
+.innerCardButton2 {
+    padding: 0.5rem 1rem;
+    background-color: #4E9CAF;
+    border: none;
+    border-radius: 0.2rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+.bookSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .price{
     font-size: 1rem;
-    font-weight: 500;
-    color:black;
-    margin: 0;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    margin-left: 2rem;
-    text-align:start;
+    font-weight: 600;
 }
+
+@media only screen and (max-width: 600px) {
+    .innerCard {
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+    }
+    .innerCard img {
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .innerCardHeading {
+        font-size: 1rem;
+    }
+    .innerCardButton {
+        padding: 0.5rem 1rem;
+    }
+    .innerCardButton2 {
+        padding: 0.5rem 1rem;
+    }
+    .bookSection{
+        flex-direction: column;
+    }
+    .price{
+        margin-top: 1rem;
+    }
+}
+    

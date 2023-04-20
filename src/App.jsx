@@ -27,7 +27,7 @@ function App() {
           <Route path="/resetpassword" element={<ForgotPassword />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addmonument" element={<Addmonument />} />
-          <Route path="/bigcard" element={<Bigcard />} />
+          <Route path="/bigcard/:id" element={<Bigcard />} />
           <Route path="/adduserimage" element={<Adduserimage />} />
         </Routes>
       </Router>

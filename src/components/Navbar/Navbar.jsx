@@ -1,68 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from '../../assets/images/logo-crop.jpg'
 import profile from '../../assets/images/profile.png'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { Modal } from '@mantine/core'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 function Navbar() {
-    // const [isMessageModalOpen, setIsMessageModalOpen] = useState(false)
-    // const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false)
-    // const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
-
-    // const messageModalToggle = () => {
-    //     setIsMessageModalOpen(!isMessageModalOpen);
-    // }
-
-    // const notificationModalToggle = () => {
-    //     setIsNotificationModalOpen(!isNotificationModalOpen);
-    // }
-
-    // const profileModalToggle = () => {
-    //     setIsProfileModalOpen(!isProfileModalOpen);
-    // }
-
-    // const isMenuOpened = useSelector(state => state.isOpened)
-    // const dispatch = useDispatch();
-    // // const [menuOpen, setMenuOpen] = useState(true)
-    // const handleMenu = () => {
-    //     // setMenuOpen(!menuOpen)
-    //     dispatch({ type: "TOGGLE_MENU" })
-    // }
-    // const token = localStorage.getItem("token");
+    const dispatch = useDispatch();
+    let data = useSelector(state => state.monumentsM
+        )
+    useEffect(() => {
+        axios.post("http://192.168.118.115:5000/getallmonuments").then((response) => {
+            dispatch({ type: "setData", payload: response.data.data })
+            dispatch({ type: "setDataM", payload: response.data.data })
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [])
+    const filterData = (e) => {
+        let data2 = []
+        data.filter((item) => {
+            console.log(item)
+            if (item.name.toUpperCase().includes(e.toUpperCase())) {
+                data2.push(item)
+            }
+        })
+        dispatch({ type: "setData", payload: data2})
+        
+    }
     return (
         <div className="navbar">
-            {/* <Modal
-				className="mainModal"
-				opened={isMessageModalOpen}
-				onClose={messageModalToggle}
-				title={<h2 className="messageHeading">Message Modal</h2>}
-			>
-                Here comes all the messages.
-            </Modal>
-            <Modal
-				className="mainModal"
-				opened={isNotificationModalOpen}
-				onClose={notificationModalToggle}
-				title={<h2 className="notificationHeading">Notification Modal</h2>}
-			>
-                Here comes all the notification.
-            </Modal>
-            <Modal
-				className="mainModal"
-				opened={isProfileModalOpen}
-				onClose={profileModalToggle}
-				title={<h2 className="profileHeading">My Profile</h2>}
-			>
-                <img className='modalImage' src={profile} style={{ width: "15rem" }} alt="" />
-            </Modal> */}
+ 
             <div className= "logo">
                 <img src={logo} alt=''/>
             </div>
             <div className="navItems">
                 <div className='navLeft'>
                     <div className="searchBar">
-                        <input type="text" style={{ fontFamily: "Arial, FontAwesome" }} placeholder="&#xf002; Search" />
+                        <input type="text" style={{ fontFamily: "Arial, FontAwesome" }} placeholder="&#xf002; Search" onChange={(e)=>filterData(e.target.value)}/>
                     </div>
                 </div>
                 <div className="navRight">
