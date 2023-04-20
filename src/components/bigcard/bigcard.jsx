@@ -4,11 +4,14 @@ import "./bigcard.css"
 
 const Bigcard = () => {
   return (
-    <div className="maindiv">
+    <div
+      className="maindiv"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+    >
       <div className="card1">
         <p className="bigcardname">Red Fort</p>
         <img src={img1} className="bigcardimage"></img>
-        <p className='monumenthistory'>
+        <p className="monumenthistory">
           Sustainable development is a popular and important concept, but one
           that is open to a variety of interpretations. Since the 1987
           Brundtland report (World Commission on Environment and Development,
