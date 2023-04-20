@@ -76,7 +76,7 @@ input::-webkit-inner-spin-button {
 }
 
 .card>.signinForm>div>button{
-    width: 100%;
+    width: 50%;
     height: 40px;
     border: none;
     border-radius: 5px;

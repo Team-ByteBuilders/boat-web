@@ -2,14 +2,40 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import signupImg from '../../assets/images/travel-img.jpg'
 import './Login.css'
+import axios from "axios";
 
 function Login() {
     const navigate=useNavigate();
-    const [creds, setCreds] = useState({ email: "", password: "" })
-    const [btnDisable, setBtnDisable] = useState(false)
+    const [creds, setCreds] = useState({ phoneno: "",otp:""})
+    const [btnDisable, setBtnDisable] = useState(false);
+    
     const handleChange = (e) => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     }
+     const handlesubmit = (e) => {
+       e.preventDefault();
+       setBtnDisable(true);
+       let body = {
+         phone:creds.phoneno,
+         otp:creds.otp
+         
+       };
+       console.log(body)
+       axios
+         .post("http://192.168.118.115:5000/login", body)
+         .then((response) => {
+            console.log(response);
+           setBtnDisable(false);
+           if (response.data.success) {
+             alert(response.data.message);
+           } else {
+             alert(response.data.message);
+           }
+         })
+         .catch((err) => {
+           console.log(err);
+         });
+     };
     // const handlesubmit = async (e) => {
     //     e.preventDefault();
     //     setBtnDisable(true);
@@ -41,29 +67,42 @@ function Login() {
     // }
 
     return (
-        <div className="card">
-            <div className="signinImg">
-                <img src={signupImg} alt="" />
-            </div>
-            <div className="signinForm">
-                <h1>Sign In</h1>
-                <div>
-                    <label className='email' htmlFor="email">EMAIL</label>
-                    <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange}/>
-                    <label className='password' htmlFor="password">PASSWORD</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange}/>
-                    <button className="signinbtn" disabled={btnDisable} >SignIn</button>
-                    <div className="extraDetails">
-                        <div></div>
-                        <div className="forgotPassword">
-                            <Link to="/resetpassword">Forgot Password?</Link>
-                        </div>
-                    </div>
-                    <div className="notamember">Not a Member? <Link to="/signup">SignUp</Link></div>
-                </div>
-            </div>
+      <div className="card">
+        <div className="signinForm">
+          <h1>Log In</h1>
+          <div>
+            <label className="email" htmlFor="email">
+              Phone Number
+            </label>
+            <input
+              type="text"
+              name="phoneno"
+              id="phoneno"
+              placeholder="Enter your number"
+              onChange={handleChange}
+            />
+            <label className="email" htmlFor="email">
+              OTP
+            </label>
+            <input
+              type="text"
+              name="otp"
+              id="phone"
+              placeholder="Enter the OTP"
+              onChange={handleChange}
+            />
+
+            <button
+              className="signinbtn"
+              disabled={btnDisable}
+              onClick={handlesubmit}
+            >
+              LogIn
+            </button>
+          </div>
         </div>
-    )
+      </div>
+    );
 }
 
 export default Login
