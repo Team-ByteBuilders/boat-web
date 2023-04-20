@@ -10,11 +10,15 @@ import axios from 'axios'
 import { useNavigate } from 'react-router'
 
 function Navbar() {
+    const token = localStorage.getItem("token");
     const [modal, setModal] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     let data = useSelector(state => state.monumentsM
     )
+    const handleLogin=()=>{
+        navigate("/login")
+    }
     useEffect(() => {
         axios.post("http://192.168.118.115:5000/getallmonuments").then((response) => {
             dispatch({ type: "setData", payload: response.data.data })
@@ -84,10 +88,7 @@ function Navbar() {
               onClick={() => setModal(true)}
             ></i>
             <i className="fa-solid fa-bell fa-lg"></i>
-            <i
-              className="fa-solid fa-right-from-bracket fa-lg"
-              onClick={handleLogout}
-            ></i>
+            {token ? (<i className="fa-solid fa-right-from-bracket fa-lg" onClick={handleLogout}></i>):(<i className="fa-solid fa-right-to-bracket fa-lg" onClick={handleLogin}></i>)}
             <div className="profilePic">
               <img src={profile} style={{ width: "40px" }} alt="profile" />
             </div>
