@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Addmonument.css";
+import axios from "axios";
 
 function Addmonument() {
   const navigate = useNavigate();
@@ -9,33 +10,60 @@ function Addmonument() {
   const handleChange = (e) => {
     setCreds({ ...creds, [e.target.name]: e.target.value });
   };
-  const handlesubmit = async (e) => {
-      e.preventDefault();
-      setBtnDisable(true);
-      const {name,details,fees,lat,long,image} = creds;
-      const response = await fetch("https://b692-210-212-82-98.in.ngrok.io/addmonument", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-              name,
-              details,
-              fees,
-              lat,
-              long,
-              image
-          }),
-      });
-      const json = await response.json();
-      setBtnDisable(false);
-      if (json.success) {
-          alert(json.message);
 
-      } else {
-          alert(json.message);
+  const handlesubmit = (e) => {
+    e.preventDefault();
+   setBtnDisable(true);
+    let body={
+      name: creds.name,
+      details: creds.details,
+      fees: creds.fees,
+      lat: creds.lat,
+      long: creds.long,
+      image: creds.image
+    }
+    axios.post("http://192.168.178.115:5000/addmonument", body 
+    ).then((response) => {
+      setBtnDisable(false);
+      if (response.data.success) {
+        alert(response.data.message)
       }
+      else {
+        alert(response.data.message);
+      }
+    }).catch((err) => {
+      console.log(err)
+    })
+
   }
+  // const handlesubmit = async (e) => {
+  //     e.preventDefault();
+  //     setBtnDisable(true);
+  //     const {name,details,fees,lat,long,image} = creds;
+  //     const response = await fetch("https://b692-210-212-82-98.in.ngrok.io/addmonument", {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json",
+  //             "Access-Control-Allow-Origin": "*",
+  //         },
+  //         body: JSON.stringify({
+  //             name,
+  //             details,
+  //             fees,
+  //             lat,
+  //             long,
+  //             image
+  //         }),
+  //     });
+  //     const json = await response.json();
+  //     setBtnDisable(false);
+  //     if (json.success) {
+  //         alert(json.message);
+
+  //     } else {
+  //         alert(json.message);
+  //     }
+  // }
 
   return (
     <div className="card">
@@ -48,8 +76,8 @@ function Addmonument() {
           <input
             type="text"
             name="name"
-            id="email"
-            placeholder="Enter your name"
+            id="name"
+            placeholder="Enter monument name"
             onChange={handleChange}
           />
           <label className="password" htmlFor="password">
