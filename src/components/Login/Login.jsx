@@ -31,7 +31,14 @@ function Login() {
           console.log(response.data.data);
           alert(response.data.message);
           navigate("/home");
-        } else {
+        }
+
+        else if(response.data.message === "User does not exists"){
+          alert(response.data.message);
+          navigate("/signup");
+        }
+        
+        else {
           alert(response.data.message);
         }
       })

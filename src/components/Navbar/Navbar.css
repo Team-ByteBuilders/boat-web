@@ -131,3 +131,8 @@
     cursor: pointer;
 }
 
+.loadings{
+    display: block;
+    margin: auto;
+    width: 5vw;
+}

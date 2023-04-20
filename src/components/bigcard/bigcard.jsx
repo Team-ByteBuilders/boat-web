@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import img1 from '../../assets/images/travel-img.jpg'
 import "./bigcard.css"
 import { useLocation, useNavigate } from 'react-router'
 
@@ -11,6 +10,7 @@ const Bigcard = () => {
   const toggleIsReadMore = () => {
     setIsReadMore(!isReadMore)
   }
+  const token=localStorage.getItem("token");
   const handlebooknow = () => {
      navigate(`/adduserimage/${state.name}`, {
        state: {
