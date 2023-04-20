@@ -30,7 +30,14 @@ function Login() {
           localStorage.setItem("token", response.data.token);
           alert(response.data.message);
           navigate("/home");
-        } else {
+        }
+
+        else if(response.data.message === "User does not exists"){
+          alert(response.data.message);
+          navigate("/signup");
+        }
+        
+        else {
           alert(response.data.message);
         }
       })
