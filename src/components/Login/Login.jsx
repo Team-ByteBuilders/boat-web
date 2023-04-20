@@ -5,68 +5,71 @@ import './Login.css'
 import axios from "axios";
 
 function Login() {
-    const navigate=useNavigate();
-    const [creds, setCreds] = useState({ phoneno: "",otp:""})
-    const [btnDisable, setBtnDisable] = useState(false);
-    
-    const handleChange = (e) => {
-        setCreds({ ...creds, [e.target.name]: e.target.value });
-    }
-     const handlesubmit = (e) => {
-       e.preventDefault();
-       setBtnDisable(true);
-       let body = {
-         phone:creds.phoneno,
-         otp:creds.otp
-         
-       };
-       console.log(body)
-       axios
-         .post("http://192.168.118.115:5000/login", body)
-         .then((response) => {
-            console.log(response);
-           setBtnDisable(false);
-           if (response.data.success) {
-             alert(response.data.message);
-           } else {
-             alert(response.data.message);
-           }
-         })
-         .catch((err) => {
-           console.log(err);
-         });
-     };
-    // const handlesubmit = async (e) => {
-    //     e.preventDefault();
-    //     setBtnDisable(true);
-    //     const { email, password } = creds;
-    //     const response = await fetch("https://intern-server.azurewebsites.net/auth/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             email,
-    //             password,
-    //         }),
-    //     });
-    //     const json = await response.json();
-    //     setBtnDisable(false);
-    //     if (json.success) {
-    //         // save the auth token and redirect
-    //         localStorage.setItem("token", json.accessToken);
-    //         // console.log(json.authtoken)
-    //         toast.success("Login Successful");
-    //         setTimeout(() => {
-    //             window.location.href = "/";
-    //         }, 500);
-            
-    //     } else {
-    //         toast.error(json.message);
-    //     }
-    // }
+  const navigate = useNavigate();
+  const [creds, setCreds] = useState({ phoneno: "", otp: "" })
+  const [btnDisable, setBtnDisable] = useState(false);
 
-    return (
+  const handleChange = (e) => {
+    setCreds({ ...creds, [e.target.name]: e.target.value });
+  }
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    setBtnDisable(true);
+    let body = {
+      phone: creds.phoneno,
+      otp: creds.otp
+
+    };
+    console.log(body)
+    axios
+      .post("http://192.168.118.115:5000/login", body)
+      .then((response) => {
+        console.log(response);
+        setBtnDisable(false);
+        if (response.data.success) {
+          localStorage.setItem("token", response.data.token);
+          alert(response.data.message);
+          navigate("/home");
+        } else {
+          alert(response.data.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const handlesubmit = async (e) => {
+  //     e.preventDefault();
+  //     setBtnDisable(true);
+  //     const { email, password } = creds;
+  //     const response = await fetch("https://intern-server.azurewebsites.net/auth/login", {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //             email,
+  //             password,
+  //         }),
+  //     });
+  //     const json = await response.json();
+  //     setBtnDisable(false);
+  //     if (json.success) {
+  //         // save the auth token and redirect
+  //         localStorage.setItem("token", json.accessToken);
+  //         // console.log(json.authtoken)
+  //         toast.success("Login Successful");
+  //         setTimeout(() => {
+  //             window.location.href = "/";
+  //         }, 500);
+
+  //     } else {
+  //         toast.error(json.message);
+  //     }
+  // }
+
+  return (
+    <div className="login">
       <div className="card">
         <div className="signinForm">
           <h1>Log In</h1>
@@ -102,7 +105,9 @@ function Login() {
           </div>
         </div>
       </div>
-    );
+    </div>
+
+  );
 }
 
 export default Login
