@@ -1,0 +1,80 @@
+.card1 {
+    display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 60%;
+        background-color: #272c37;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 0.7rem;
+        margin: 10px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        justify-content: center;
+}
+
+.maindiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    }  
+.bigcardimage{
+    width: 78%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    margin-bottom: 1rem; 
+}
+.bigcardname{
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.monumenthistory{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    margin-left: 2rem;
+    text-align:start;
+}
+.bookbutton{
+    background-color: #f2902e;
+        border: none;
+        border-radius: 0.2rem;
+        width: 17%;
+        height: 2.2vw;
+        color: white;
+        margin-right: 0.7vw;
+        margin-top: 1.8vw;
+        margin-bottom: 2vw;
+        font-size: small;
+        animation: zoom-in-zoom-out 1s ease infinite;
+        cursor: pointer;
+        margin-left: auto;
+}
+.price{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    margin-left: 2rem;
+    text-align:start;
+}
