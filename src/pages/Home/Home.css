@@ -1,5 +1,26 @@
-.home{
-  background-color: #ccc;
-  width: 100vw;
-  height: 100vh;
+.home {
+    background-color: #ccc;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.home>.nearbyDiv {
+    width: 100vw;
+}
+
+.home>.nearbyDiv>.nearbyHeading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    width: 100vw;
+}
+
+.home>.nearbyDiv>.nearbyCards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: space-around;
 }
