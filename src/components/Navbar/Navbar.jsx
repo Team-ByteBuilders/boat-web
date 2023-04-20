@@ -7,12 +7,14 @@ import logo from '../../assets/images/logo-crop.jpg'
 import profile from '../../assets/images/profile.png'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 function Navbar() {
     const [modal, setModal] = useState(false);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     let data = useSelector(state => state.monumentsM
-        )
+    )
     useEffect(() => {
         axios.post("http://192.168.118.115:5000/getallmonuments").then((response) => {
             dispatch({ type: "setData", payload: response.data.data })
@@ -21,6 +23,10 @@ function Navbar() {
             console.log(err)
         })
     }, [])
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        navigate("/login");
+    }
     const filterData = (e) => {
         let data2 = []
         data.filter((item) => {
@@ -29,8 +35,8 @@ function Navbar() {
                 data2.push(item)
             }
         })
-        dispatch({ type: "setData", payload: data2})
-        
+        dispatch({ type: "setData", payload: data2 })
+
     }
     return (
       <div className="navbar">
@@ -50,7 +56,7 @@ function Navbar() {
           />
 
           <div>
-            <img src={paisa} className='paisa'></img>
+            <img src={paisa} className="paisa"></img>
             <p className="walletlabel">
               Current balance with the user in wallet:
             </p>
@@ -77,7 +83,11 @@ function Navbar() {
               className="fa-solid fa-wallet fa-lg"
               onClick={() => setModal(true)}
             ></i>
-            <i class="fa-solid fa-bell fa-lg"></i>
+            <i className="fa-solid fa-bell fa-lg"></i>
+            <i
+              className="fa-solid fa-right-from-bracket fa-lg"
+              onClick={handleLogout}
+            ></i>
             <div className="profilePic">
               <img src={profile} style={{ width: "40px" }} alt="profile" />
             </div>

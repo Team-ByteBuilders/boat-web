@@ -17,10 +17,13 @@ import Adduserimage from './components/Adduserimage/Adduserimage';
 
 function App() {
 
+  const token=localStorage.getItem("token");
+
   return (
     <div className="App">
       <Router>
         <Routes>
+          <Route exact path="/" element={token?<Navigate to="/home"/>:<Navigate to="/login"/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
