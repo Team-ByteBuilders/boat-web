@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Addmonument from './components/Addmonument/Addmonument';
+import Bigcard from './components/bigcard/bigcard';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/resetpassword" element={<ForgotPassword />} />
           <Route path="/addmonument" element={<Addmonument />} />
+          <Route path="/bigcard" element={<Bigcard />} />
         </Routes>
       </Router>
     </div>
