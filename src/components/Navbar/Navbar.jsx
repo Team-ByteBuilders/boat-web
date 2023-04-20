@@ -8,12 +8,14 @@ import profile from '../../assets/images/profile.png'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
+import loading from "../../assets/images/loading-gif.gif"
 
 function Navbar() {
     const token = localStorage.getItem("token");
     const [modal, setModal] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [balance,setBalance]=useState();
     let data = useSelector(state => state.monumentsM
     )
     const handleLogin=()=>{
@@ -42,6 +44,24 @@ function Navbar() {
         dispatch({ type: "setData", payload: data2 })
 
     }
+    const handleWallet = () => {
+        setModal(true)
+        axios.get("http://192.168.118.115:5000/getmoney", {
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${localStorage.getItem('token')}`
+            },
+          }).then((response) => {
+            if (response.data.success) {
+              setBalance(response.data.data.balance)
+            }
+            else {
+              alert(json.message);
+            }
+          }).catch((err) => {
+            console.log(err)
+          })
+        }
     return (
       <div className="navbar">
         <Modal
@@ -64,7 +84,7 @@ function Navbar() {
             <p className="walletlabel">
               Current balance with the user in wallet:
             </p>
-            <p className="walletamount">5000</p>
+            {balance?<p className="walletamount">{balance}</p>:<img className="loadings" src={loading} alt="" />}
           </div>
         </Modal>
 
@@ -83,10 +103,10 @@ function Navbar() {
             </div>
           </div>
           <div className="navRight">
-            <i
+            {token&&<i
               className="fa-solid fa-wallet fa-lg"
-              onClick={() => setModal(true)}
-            ></i>
+              onClick={handleWallet}
+            ></i>}
             <i className="fa-solid fa-bell fa-lg"></i>
             {token ? (<i className="fa-solid fa-right-from-bracket fa-lg" onClick={handleLogout}></i>):(<i className="fa-solid fa-right-to-bracket fa-lg" onClick={handleLogin}></i>)}
             <div className="profilePic">
