@@ -15,6 +15,12 @@ const reducerFn = (state = { monuments: [], monumentsM: [] }, action) => {
             monumentsM: action.payload
         };
     }
+        if (action.type === "setUser") {
+          return {
+            ...state,
+            user: action.payload,
+          };
+        }
     return state
 }
 

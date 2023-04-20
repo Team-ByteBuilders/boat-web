@@ -31,7 +31,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/addmonument" element={<Addmonument />} />
           <Route path="/bigcard/:id" element={<Bigcard />} />
-          <Route path="/adduserimage" element={<Adduserimage />} />
+          <Route path="/adduserimage/:id" element={<Adduserimage />} />
         </Routes>
       </Router>
     </div>

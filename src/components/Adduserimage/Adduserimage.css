@@ -1,4 +1,4 @@
-.addme {
+/* .addme {
     width: 7rem;
     height: 2.5rem;
     border: none;
@@ -79,10 +79,23 @@
 }
 
 .labeldetails {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     margin-top: 1rem;
 }
-
+.ticketdetails.ticketheader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4E9CAF;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    width: 100%;
+    height: 10vh;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
 .add1 {
     width: 5rem;
     height: 4vh;
@@ -99,4 +112,173 @@
     justify-content: center;
     margin: auto;
     margin-top: 5rem;
+} */
+
+.ticketPage {
+  background-color: #ccc;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.ticketPage::-webkit-scrollbar {
+  display: none;
+}
+
+.tickets {
+  width: 100%;
+  height: 80vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
+  gap: 1rem;
+}
+
+.tickets >p{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tickets::-webkit-scrollbar {
+  display: none;
+}
+
+.ticketAdder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(80vh);
+  background: #4e9caf;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  transition: all 0.3s;
+}
+
+.topButtons {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.topButtons button{
+    border: none;
+    background: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.topButtons button:disabled{
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.ticket{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    border: 1px solid #4e9caf;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.ticket img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+}
+
+.ticket p{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.ticket p:nth-child(3){
+    margin-left: auto;
+}
+
+.ticketUp{
+    transform: translateY(40vh) !important;
+}
+
+.othersAdd{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    margin-top: 6rem;
+}
+
+.othersAdd img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.othersAdd input{
+    width: 50%;
+    height: 3rem;
+    border-radius: 15px;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    outline: none;
+    background: #cccccc;
+    border: none;
+}
+
+.othersAdd button{
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.checkout{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.checkout p{
+    font-size: 1rem;
+    font-weight:500;
+}
+
+.checkout button{
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    background: #4e9caf;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
 }

@@ -9,6 +9,7 @@ import {  useSelector } from 'react-redux';
 
 function Home() {
     let data = useSelector(state => state.monuments)
+    console.log(data)
     const[modal,setModal]=useState(false)
     return (
       <div className="home">
@@ -29,6 +30,7 @@ function Home() {
                     name={item.name}
                     image={item.image}
                     details={item.details}
+                    fees={item.fees}
                   />
                 );
               })}

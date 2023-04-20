@@ -12,13 +12,17 @@ const Bigcard = () => {
     setIsReadMore(!isReadMore)
   }
   const handlebooknow = () => {
-    navigate('/adduserimage')
+     navigate(`/adduserimage/${state.name}`, {
+       state: {
+         image: state.image,
+         name: state.name,
+         details: state.details,
+         fees: state.fees,
+       },
+     });
   }
   return (
-    <div
-      className="maindiv"
-      style={{ backgroundColor: "#ccc" }}
-    >
+    <div className="maindiv" style={{ backgroundColor: "#ccc" }}>
       {/* <div className="card1">
         <p className="bigcardname">Red Fort</p>
         <div className='widthHolder'>
@@ -43,12 +47,16 @@ const Bigcard = () => {
         <p className="innerCardHeading">{state.name}</p>
         <img src={state.image} alt="tour" />
         <p className={`${isReadMore ? "monumenthistory" : "hidden"}`}>
-        {state.details}
+          {state.details}
         </p>
-        <button className='innerCardButton' onClick={toggleIsReadMore}>{isReadMore ? "Hide" : "Read More"}</button>
+        <button className="innerCardButton" onClick={toggleIsReadMore}>
+          {isReadMore ? "Hide" : "Read More"}
+        </button>
         <div className="bookSection">
-          <p className="price">RS.200</p>
-          <button className="innerCardButton2" onClick={handlebooknow}>Book now</button>
+          <p className="price">RS.{state.fees}</p>
+          <button className="innerCardButton2" onClick={handlebooknow}>
+            Book now
+          </button>
         </div>
       </div>
     </div>

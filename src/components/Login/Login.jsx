@@ -1,26 +1,25 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import signupImg from '../../assets/images/travel-img.jpg'
-import './Login.css'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import signupImg from "../../assets/images/travel-img.jpg";
+import "./Login.css";
 import axios from "axios";
 
 function Login() {
   const navigate = useNavigate();
-  const [creds, setCreds] = useState({ phoneno: "", otp: "" })
+  const [creds, setCreds] = useState({ phoneno: "", otp: "" });
   const [btnDisable, setBtnDisable] = useState(false);
 
   const handleChange = (e) => {
     setCreds({ ...creds, [e.target.name]: e.target.value });
-  }
+  };
   const handlesubmit = (e) => {
     e.preventDefault();
     setBtnDisable(true);
     let body = {
       phone: creds.phoneno,
-      otp: creds.otp
-
+      otp: creds.otp,
     };
-    console.log(body)
+    console.log(body);
     axios
       .post("http://192.168.118.115:5000/login", body)
       .then((response) => {
@@ -28,6 +27,8 @@ function Login() {
         setBtnDisable(false);
         if (response.data.success) {
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", JSON.stringify(response.data.data));
+          console.log(response.data.data);
           alert(response.data.message);
           navigate("/home");
         } else {
@@ -106,8 +107,7 @@ function Login() {
         </div>
       </div>
     </div>
-
   );
 }
 
-export default Login
+export default Login;
