@@ -1,9 +1,25 @@
 import React, { useState } from 'react'
 import './Signup.css'
 import signupImg from '../../assets/images/travel-img.jpg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function Signup() {
+    const[image,setImage]=useState('');
+    function handleImage(e){
+        console.log(e.target.files);
+        setImage(e.target.files[0])
+    }
+    // function handleApi(){
+    //     const formData = new FormData()
+    //     formData.append('file',image)
+    //     fetch(
+    //         'http://192.168.118.115:5000/signup',{
+    //             method:'POST',
+    //             body:formData
+    //         }
+    //     ) .then((response) => response.json().then((result) => {console.log('Success:', result);}).catch((error) => {console.error('Error:', error);}))
+    // } 
     const navigate = useNavigate();
     const [btnDisable, setBtnDisable] = useState(false)
     const [creds, setCreds] = useState({ name: "", age: "", phone: "", image: "" })
@@ -11,16 +27,18 @@ function Signup() {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     }
     const handlesubmit = (e) => {
+        console.log("handlesubmit")
       e.preventDefault();
       setBtnDisable(true);
-      let body = {
-        name: creds.name,
-        age: creds.age,
-        phone: creds.phone,
-        image: creds.image
-      };
+      let data = new FormData();
+        data.append("name", creds.name);
+        data.append("age", creds.age);
+        data.append("phone", creds.phone);
+        data.append("file", image);
+
+      console.log(data);
       axios
-        .post("http://192.168.118.115:5000/login", body)
+        .post("http://192.168.118.115:5000/signup", data, {"Content-Type": "multipart/form-data"})
         .then((response) => {
           console.log(response);
           setBtnDisable(false);
@@ -34,6 +52,7 @@ function Signup() {
           console.log(err);
         });
     };
+    
     
     // const handleSignin = async (e) => {
     //     setBtnDisable(true);
@@ -79,8 +98,8 @@ function Signup() {
                     <label className='password' htmlFor="password">Phone</label>
                     <input type="text" name="phone" id="phone" required placeholder="Enter your phone number" onChange={handleChange} />
                     <label className='phnumber' htmlFor="phnumber">Image</label>
-                    <input type="file" name="file" id="file" required placeholder="upload your picture" onChange={handleChange} />
-                    <button className="signupbtn" disabled={btnDisable}>Register</button>
+                    <input type="file" name="file" id="file" required placeholder="upload your picture" onChange={handleImage} />
+                    <button className="signupbtn"  onClick={handlesubmit}>Register</button>
                     
                 </div>
             </div>
