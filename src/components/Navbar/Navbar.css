@@ -6,7 +6,36 @@
     justify-content: start;
     align-items: center;
 }
+.modalclosebutton {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+.walletlabel{
+    padding-left: 1rem;
+    padding-right: 1rem;
 
+}
+.walletamount{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.9vw;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.7rem;
+}
+.paisa{
+    display:block;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin:auto;
+    margin-bottom: 1rem;
+}
 /* .mainModal{
     text-align: center;
 } */
