@@ -51,8 +51,53 @@
     margin-left: 2rem;
     text-align:start;
 }
+
+.hidemonumenthistory{
+    display: none;
+}
+
+.readMore{
+    background-color: #4E9CAF;
+    border: none;
+    border-radius: 0.2rem;
+    width: 17%;
+    height: 2.2vw;
+    color: white;
+    margin-right: 0.7vw;
+    margin-top: 1.8vw;
+    margin-bottom: 2vw;
+    font-size: small;
+    animation: zoom-in-zoom-out 1s ease infinite;
+    cursor: pointer;
+    margin: 0.5rem auto;
+}
+
+.readLess{
+    background-color: #4E9CAF;
+    border: none;
+    border-radius: 0.2rem;
+    width: 17%;
+    height: 2.2vw;
+    color: white;
+    margin-right: 0.7vw;
+    margin-top: 1.8vw;
+    margin-bottom: 2vw;
+    font-size: small;
+    animation: zoom-in-zoom-out 1s ease infinite;
+    cursor: pointer;
+    margin: 0.5rem auto;
+}
+
+.hideReadMore{
+    display: none;
+}
+
+.hideReadLess{
+    display: none;
+}
+
 .bookbutton{
-    background-color: #f2902e;
+    background-color: #4E9CAF;
         border: none;
         border-radius: 0.2rem;
         width: 17%;

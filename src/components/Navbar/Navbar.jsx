@@ -66,8 +66,8 @@ function Navbar() {
                     </div>
                 </div>
                 <div className="navRight">
-                    <i className="fa-regular fa-envelope fa-lg"></i>
-                    <i class="fa-regular fa-bell fa-lg" ></i>
+                    <i className="fa-solid fa-wallet fa-lg"></i>
+                    <i class="fa-solid fa-bell fa-lg" ></i>
                     <div className="profilePic" >
                         <img src={profile} style={{ width: "40px" }} alt="profile" />
                     </div>
