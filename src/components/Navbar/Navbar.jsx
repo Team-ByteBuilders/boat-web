@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import './Navbar.css'
+import React, { useEffect, useState } from "react";
+import "./Navbar.css";
 import paisa from "../../assets/images/paisa.png";
 import cross from "../../assets/images/cross.png";
 import { Modal } from "@mantine/core";
-import logo from '../../assets/images/logo-crop.jpg'
-import profile from '../../assets/images/profile.png'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-import { useNavigate } from 'react-router'
+import logo from "../../assets/images/logo-crop.jpg";
+import profile from "../../assets/images/profile.png";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useNavigate } from "react-router";
 import loading from "../../assets/images/loading-gif.gif"
 
 function Navbar() {
@@ -22,7 +22,7 @@ function Navbar() {
         navigate("/login")
     }
     useEffect(() => {
-        axios.post("http://192.168.118.115:5000/getallmonuments").then((response) => {
+        axios.post("http://192.168.118.96:5000/getallmonuments").then((response) => {
             dispatch({ type: "setData", payload: response.data.data })
             dispatch({ type: "setDataM", payload: response.data.data })
         }).catch((err) => {
@@ -46,7 +46,7 @@ function Navbar() {
     }
     const handleWallet = () => {
         setModal(true)
-        axios.get("http://192.168.118.115:5000/getmoney", {
+        axios.get("http://192.168.118.96:5000/getmoney", {
             headers: {
               "Content-Type": "application/json",
               "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -118,4 +118,4 @@ function Navbar() {
     );
 }
 
-export default Navbar
+export default Navbar;

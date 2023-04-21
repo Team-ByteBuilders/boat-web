@@ -5,7 +5,14 @@ import { useNavigate } from 'react-router'
 function SmallCard(props) {
     const navigate = useNavigate();
     const handleclick = () => {
-        navigate(`/bigcard/${props.name}`, { state: { image: props.image, name: props.name, details: props.details } })
+        navigate(`/bigcard/${props.name}`, {
+          state: {
+            image: props.image,
+            name: props.name,
+            details: props.details,
+            fees: props.fees,
+          },
+        });
     }
     return (
         <div className='smallCard' onClick={handleclick}>
