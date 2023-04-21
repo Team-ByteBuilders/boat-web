@@ -107,11 +107,10 @@ function Navbar() {
               className="fa-solid fa-wallet fa-lg"
               onClick={handleWallet}
             ></i>}
-            <i className="fa-solid fa-bell fa-lg"></i>
             {token ? (<i className="fa-solid fa-right-from-bracket fa-lg" onClick={handleLogout}></i>):(<i className="fa-solid fa-right-to-bracket fa-lg" onClick={handleLogin}></i>)}
-            <div className="profilePic">
+            {token&&<div className="profilePic">
               <img src={profile} style={{ width: "40px" }} alt="profile" />
-            </div>
+            </div>}
           </div>
         </div>
       </div>
