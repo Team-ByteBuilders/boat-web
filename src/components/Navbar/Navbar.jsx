@@ -22,7 +22,7 @@ function Navbar() {
         navigate("/login")
     }
     useEffect(() => {
-        axios.post("http://192.168.118.115:5000/getallmonuments").then((response) => {
+        axios.post("http://192.168.118.96:5000/getallmonuments").then((response) => {
             dispatch({ type: "setData", payload: response.data.data })
             dispatch({ type: "setDataM", payload: response.data.data })
         }).catch((err) => {
@@ -46,7 +46,7 @@ function Navbar() {
     }
     const handleWallet = () => {
         setModal(true)
-        axios.get("http://192.168.118.115:5000/getmoney", {
+        axios.get("http://192.168.118.96:5000/getmoney", {
             headers: {
               "Content-Type": "application/json",
               "Authorization": `Bearer ${localStorage.getItem('token')}`

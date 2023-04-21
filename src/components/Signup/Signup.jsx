@@ -38,7 +38,7 @@ function Signup() {
 
     console.log(data);
     axios
-      .post("http://192.168.118.115:5000/signup", data, { "Content-Type": "multipart/form-data" })
+      .post("http://192.168.118.96:5000/signup", data, { "Content-Type": "multipart/form-data" })
       .then((response) => {
         console.log(response);
         setBtnDisable(false);
