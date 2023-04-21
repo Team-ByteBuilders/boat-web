@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./Adduserimage.css";
 import { useLocation, useNavigate } from "react-router";
 import profile from "../../assets/images/profile.png";
+import axios from "axios";
 
 const Adduserimage = () => {
   const inputRef = useRef(null);
@@ -10,6 +11,13 @@ const Adduserimage = () => {
   const [list, setList] = useState([]);
   const [added, setAdded] = useState(false);
   const name = JSON.parse(localStorage.getItem("user")).name;
+  const checkout = () => {
+     axios
+      .post("http://192.168.96.115:5000/checkout", list)
+      .then((response) => {
+        alert("done")
+        console.log(response);})
+  }
   //   console.log(state);
   //   const [creds, setCreds] = useState({ name: "" });
   //   let [others, setOthers] = useState([]);
@@ -90,7 +98,12 @@ const Adduserimage = () => {
     // </div>
     <div className="ticketPage">
       <input type="file" style={{ display: "none" }} ref={inputRef} />
-      <div className="tickets" onClick={() => setUp(false)}>
+      <div
+        className="tickets"
+        onClick={() => {
+          setUp(false);
+        }}
+      >
         <p>{state.name}</p>
         {list.map((item, index) => {
           return (
@@ -103,7 +116,7 @@ const Adduserimage = () => {
         })}
         <div className="checkout">
           <p>TOTAL: ₹ {state.fees * list.length}</p>
-          <button className="checkoutbutton">Checkout</button>
+          <button className="checkoutbutton" onClick={()=>checkout()}>Checkout</button>
         </div>
       </div>
       <div className={`ticketAdder ${up ? "ticketUp" : ""}`}>
@@ -127,11 +140,9 @@ const Adduserimage = () => {
         </div>
         <div className="othersAdd">
           <img
-            src={`${
-              inputRef?.current?.files[0]
-                ? inputRef.current.files[0]
-                : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            } `}
+            src={
+              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            }
             alt="hehe"
             onClick={() => {
               inputRef.current.click();
@@ -147,6 +158,7 @@ const Adduserimage = () => {
                 name: a.value,
                 profile:
                   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+                file: inputRef.current.files[0],
               });
               a.value = "";
               setList([...b]);
