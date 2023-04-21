@@ -11,12 +11,28 @@ const Adduserimage = () => {
   const [list, setList] = useState([]);
   const [added, setAdded] = useState(false);
   const name = JSON.parse(localStorage.getItem("user")).name;
-  const checkout = () => {
-     axios
-      .post("http://192.168.96.115:5000/checkout", list)
-      .then((response) => {
-        alert("done")
-        console.log(response);})
+  const checkout = (name) => {
+    let data = new FormData();
+    data.append("name", name);
+    data.append("file", inputRef.current.files[0]);
+      axios
+        .post("http://192.168.96.115:5000/checkout", data, {
+          "Content-Type": "multipart/form-data",
+        })
+        .then((response) => {
+          console.log(response);
+          setBtnDisable(false);
+          if (response.data.success) {
+            alert(response.data.message);
+            localStorage.setItem("token", response.data.token);
+            navigate("/home");
+          } else {
+            alert(response.data.message);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }
   //   console.log(state);
   //   const [creds, setCreds] = useState({ name: "" });
@@ -116,7 +132,7 @@ const Adduserimage = () => {
         })}
         <div className="checkout">
           <p>TOTAL: ₹ {state.fees * list.length}</p>
-          <button className="checkoutbutton" onClick={()=>checkout()}>Checkout</button>
+          <button className="checkoutbutton" onClick={()=>alert("done")}>Checkout</button>
         </div>
       </div>
       <div className={`ticketAdder ${up ? "ticketUp" : ""}`}>
@@ -160,9 +176,10 @@ const Adduserimage = () => {
                   "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
                 file: inputRef.current.files[0],
               });
+              checkout(a.value);
               a.value = "";
               setList([...b]);
-              console.log(inputRef.current.files);
+              
             }}
           >
             Add
