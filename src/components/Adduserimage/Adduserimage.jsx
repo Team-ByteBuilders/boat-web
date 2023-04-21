@@ -5,6 +5,7 @@ import profile from "../../assets/images/profile.png";
 import axios from "axios";
 
 const Adduserimage = () => {
+  const navigate = useNavigate();
   const inputRef = useRef(null);
   const [up, setUp] = useState(false);
   const { state } = useLocation();
@@ -35,6 +36,11 @@ const Adduserimage = () => {
         });
   }
 
+  const handlecheckout = () => {
+    alert("checkout successfull");
+    navigate("/home");
+  }
+
   return (
     <div className="ticketPage">
       <input type="file" style={{ display: "none" }} ref={inputRef} />
@@ -56,7 +62,7 @@ const Adduserimage = () => {
         })}
         <div className="checkout">
           <p>TOTAL: ₹ {state.fees * list.length}</p>
-          <button className="checkoutbutton" onClick={()=>alert("done")}>Checkout</button>
+          <button className="checkoutbutton" onClick={handlecheckout}>Checkout</button>
         </div>
       </div>
       <div className={`ticketAdder ${up ? "ticketUp" : ""}`}>
