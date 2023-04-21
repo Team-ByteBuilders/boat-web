@@ -93,22 +93,62 @@ function Signup() {
         <div className="signupForm">
           <h1>Register</h1>
           <div>
-            <label className='email' htmlFor="email">Name</label>
-            <input type="text" name="name" id="name" required placeholder="Enter your name" onChange={handleChange} />
-            <label className='username' htmlFor="username">Age</label>
-            <input type="text" name="age" id="age" required placeholder="Enter your Age" onChange={handleChange} />
-            <label className='password' htmlFor="password">Phone</label>
-            <input type="text" name="phone" id="phone" required placeholder="Enter your phone number" onChange={handleChange} />
-            <label className='phnumber' htmlFor="phnumber">Image</label>
-            <input type="file" name="file" id="file" required placeholder="upload your picture" onChange={handleImage} />
-            <button className="signupbtn" onClick={handlesubmit} >Register</button>
-
+            <label className="email" htmlFor="email">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="Enter your name"
+              onChange={handleChange}
+            />
+            <label className="username" htmlFor="username">
+              Age
+            </label>
+            <input
+              type="text"
+              name="age"
+              id="age"
+              required
+              placeholder="Enter your Age"
+              onChange={handleChange}
+            />
+            <label className="password" htmlFor="password">
+              Phone
+            </label>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              required
+              placeholder="Enter your phone number"
+              onChange={handleChange}
+            />
+            <label className="phnumber" htmlFor="phnumber">
+              Image
+            </label>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              required
+              placeholder="upload your picture"
+              onChange={handleImage}
+            />
+            <button
+              className="signupbtn"
+              disabled={btnDisable}
+              onClick={handlesubmit}
+            >
+              Register
+            </button>
           </div>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
 export default Signup
