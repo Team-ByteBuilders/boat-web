@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Admin from './pages/Admin/Admin';
 import Home from './pages/Home/Home';
 import Addmonument from './components/Addmonument/Addmonument';
@@ -27,7 +26,6 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/resetpassword" element={<ForgotPassword />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addmonument" element={<Addmonument />} />
           <Route path="/bigcard/:id" element={<Bigcard />} />
