@@ -9,17 +9,7 @@ function Signup() {
   function handleImage(e) {
     console.log(e.target.files);
     setImage(e.target.files[0])
-  }
-  // function handleApi(){
-  //     const formData = new FormData()
-  //     formData.append('file',image)
-  //     fetch(
-  //         'http://192.168.118.115:5000/signup',{
-  //             method:'POST',
-  //             body:formData
-  //         }
-  //     ) .then((response) => response.json().then((result) => {console.log('Success:', result);}).catch((error) => {console.error('Error:', error);}))
-  // } 
+  } 
   const navigate = useNavigate();
   const [btnDisable, setBtnDisable] = useState(false)
   const [creds, setCreds] = useState({ name: "", age: "", phone: "", image: "" })
@@ -38,7 +28,7 @@ function Signup() {
 
     console.log(data);
     axios
-      .post("http://192.168.96.115:5000/signup", data, { "Content-Type": "multipart/form-data" })
+      .post("http://192.168.177.115:5000/signup", data, { "Content-Type": "multipart/form-data" })
       .then((response) => {
         console.log(response);
         setBtnDisable(false);
@@ -54,38 +44,6 @@ function Signup() {
         console.log(err);
       });
   };
-
-
-  // const handleSignin = async (e) => {
-  //     setBtnDisable(true);
-  //     e.preventDefault();
-  //     const { email, username, password, phNumber } = creds;
-  //     const response = await fetch("https://intern-server.azurewebsites.net/auth/register", {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //             email,
-  //             username,
-  //             password,
-  //             phNumber,
-  //         }),
-  //     });
-  //     const json = await response.json();
-  //     setBtnDisable(false);
-  //     if (json.success) {
-  //         // save the auth token and redirect
-  //         localStorage.setItem("token", json.accessToken);
-  //         toast.success("Signup Successful");
-  //         setTimeout(() => {
-  //             window.location.href = "/";
-  //         }, 500);
-  //     } else {
-  //         // alert(json.message);
-  //         toast.error(json.message);
-  //     }
-  // }
 
   return (
     <div className="signup">

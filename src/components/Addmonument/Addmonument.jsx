@@ -22,7 +22,7 @@ function Addmonument() {
       long: creds.long,
       image: creds.image
     }
-    axios.post("http://192.168.96.115:5000/addmonument", body 
+    axios.post("http://192.168.177.115:5000/addmonument", body 
     ).then((response) => {
       setBtnDisable(false);
       if (response.data.success) {
@@ -36,34 +36,6 @@ function Addmonument() {
     })
 
   }
-  // const handlesubmit = async (e) => {
-  //     e.preventDefault();
-  //     setBtnDisable(true);
-  //     const {name,details,fees,lat,long,image} = creds;
-  //     const response = await fetch("https://b692-210-212-82-98.in.ngrok.io/addmonument", {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //             "Access-Control-Allow-Origin": "*",
-  //         },
-  //         body: JSON.stringify({
-  //             name,
-  //             details,
-  //             fees,
-  //             lat,
-  //             long,
-  //             image
-  //         }),
-  //     });
-  //     const json = await response.json();
-  //     setBtnDisable(false);
-  //     if (json.success) {
-  //         alert(json.message);
-
-  //     } else {
-  //         alert(json.message);
-  //     }
-  // }
 
   return (
     <div className="card">
@@ -133,8 +105,6 @@ function Addmonument() {
           <button className="signinbtn" disabled={btnDisable} onClick={handlesubmit}>
             ADD
           </button>
-          
-          
         </div>
       </div>
     </div>

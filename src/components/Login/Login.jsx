@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import signupImg from "../../assets/images/travel-img.jpg";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
@@ -21,7 +20,7 @@ function Login() {
     };
     console.log(body);
     axios
-      .post("http://192.168.96.115:5000/login", body)
+      .post("http://192.168.177.115:5000/login", body)
       .then((response) => {
         console.log(response);
         setBtnDisable(false);
@@ -46,35 +45,6 @@ function Login() {
         console.log(err);
       });
   };
-  // const handlesubmit = async (e) => {
-  //     e.preventDefault();
-  //     setBtnDisable(true);
-  //     const { email, password } = creds;
-  //     const response = await fetch("https://intern-server.azurewebsites.net/auth/login", {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //             email,
-  //             password,
-  //         }),
-  //     });
-  //     const json = await response.json();
-  //     setBtnDisable(false);
-  //     if (json.success) {
-  //         // save the auth token and redirect
-  //         localStorage.setItem("token", json.accessToken);
-  //         // console.log(json.authtoken)
-  //         toast.success("Login Successful");
-  //         setTimeout(() => {
-  //             window.location.href = "/";
-  //         }, 500);
-
-  //     } else {
-  //         toast.error(json.message);
-  //     }
-  // }
 
   return (
     <div className="login">
