@@ -101,7 +101,7 @@ function Signup() {
             <input type="text" name="phone" id="phone" required placeholder="Enter your phone number" onChange={handleChange} />
             <label className='phnumber' htmlFor="phnumber">Image</label>
             <input type="file" name="file" id="file" required placeholder="upload your picture" onChange={handleImage} />
-            <button className="signupbtn" onClick={handlesubmit}>Register</button>
+            <button className="signupbtn" onClick={handlesubmit} >Register</button>
 
           </div>
         </div>

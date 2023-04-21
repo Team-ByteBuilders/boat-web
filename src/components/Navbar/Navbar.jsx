@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import './Navbar.css'
+import React, { useEffect, useState } from "react";
+import "./Navbar.css";
 import paisa from "../../assets/images/paisa.png";
 import cross from "../../assets/images/cross.png";
 import { Modal } from "@mantine/core";
-import logo from '../../assets/images/logo-crop.jpg'
-import profile from '../../assets/images/profile.png'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-import { useNavigate } from 'react-router'
+import logo from "../../assets/images/logo-crop.jpg";
+import profile from "../../assets/images/profile.png";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useNavigate } from "react-router";
 import loading from "../../assets/images/loading-gif.gif"
 
 function Navbar() {
@@ -118,4 +118,4 @@ function Navbar() {
     );
 }
 
-export default Navbar
+export default Navbar;
