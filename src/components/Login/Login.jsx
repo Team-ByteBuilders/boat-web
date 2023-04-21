@@ -29,7 +29,7 @@ function Login() {
           localStorage.setItem("user", JSON.stringify(response.data.data));
           console.log(response.data.data);
           alert(response.data.message);
-          navigate("/home");
+          navigate(-1);
         }
 
         else if(response.data.message === "User does not exists"){
