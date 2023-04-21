@@ -16,7 +16,7 @@ function Home() {
         
         <Navbar />
         <div className="nearbyDiv">
-          <h1 className="nearbyHeading">Nearby Monument</h1>
+          <h1 className="nearbyHeading">Explore New Places</h1>
           <div className="nearbyCards">
             {data.length === 0 && (
               <img className="loading" src={loading} alt="" />
