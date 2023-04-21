@@ -27,6 +27,7 @@ function Addmonument() {
       setBtnDisable(false);
       if (response.data.success) {
         alert(response.data.message)
+        navigate(-1);
       }
       else {
         alert(response.data.message);
