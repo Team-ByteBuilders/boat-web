@@ -36,19 +36,6 @@
     margin:auto;
     margin-bottom: 1rem;
 }
-/* .mainModal{
-    text-align: center;
-} */
-
-/* .modalImage{
-    display: flex;
-    width: fit-content;
-    margin: auto;
-} */
-
-/* .navbarNone{
-    display: none;
-} */
 
 .navbar>.logo{
     font-size: 1.5rem;
@@ -61,18 +48,6 @@
 .navbar>.logo>img{
     width: 3rem;
 }
-
-/* .navbar>.closedLogo{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    width: 3vw;
-} */
-
-/* .navbar>.logo:hover{
-    color: #fff;
-} */
 
 .navbar>.navItems{
     display: flex;
@@ -92,12 +67,6 @@
     width: 20vw;
     height: 5vh;
 }
-
-/* .navbar>.navItems>.navLeft>.hamburger{
-    margin: auto 2rem;
-    cursor: pointer;
-} */
-
 
 .navbar>.navItems>.navLeft>.searchBar>input{
     width: 100%;
