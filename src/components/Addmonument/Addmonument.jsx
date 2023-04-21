@@ -22,7 +22,7 @@ function Addmonument() {
       long: creds.long,
       image: creds.image
     }
-    axios.post("http://192.168.178.96:5000/addmonument", body 
+    axios.post("http://192.168.96.115:5000/addmonument", body 
     ).then((response) => {
       setBtnDisable(false);
       if (response.data.success) {
