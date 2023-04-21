@@ -44,6 +44,8 @@ function Signup() {
         setBtnDisable(false);
         if (response.data.success) {
           alert(response.data.message);
+          localStorage.setItem("token", response.data.token);
+          navigate("/home");
         } else {
           alert(response.data.message);
         }
