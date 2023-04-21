@@ -99,18 +99,6 @@ input::-webkit-inner-spin-button {
     cursor: not-allowed;
 }
 
-
-.alreadyamember{
-    margin-top: 20px;
-    font-size: 1rem;
-}
-
-.alreadyamember>a{
-    text-decoration: none;
-    color:  rgb(231, 158, 2);
-    font-weight: 600;
-}
-
 @media only screen and (max-width: 760px){
     
     .card>.signupImg{
@@ -130,15 +118,6 @@ input::-webkit-inner-spin-button {
     }
     .card>.signupForm>div>button{
         height: 35px;
-        font-size: 0.8rem;
-    }
-    .extraDetails > .rememberMecheck > label {
-        font-size: 0.7rem;
-    }
-    .extraDetails > .forgotPassword>a {
-        font-size: 0.7rem;
-    }
-    .alreadyamember{
         font-size: 0.8rem;
     }
 }

@@ -122,13 +122,4 @@ input::-webkit-inner-spin-button {
         height: 35px;
         font-size: 0.8rem;
     }
-    .extraDetails > .rememberMecheck > label {
-        font-size: 0.7rem;
-    }
-    .extraDetails > .forgotPassword>a {
-        font-size: 0.7rem;
-    }
-    .notamember{
-        font-size: 0.8rem;
-    }
 }
