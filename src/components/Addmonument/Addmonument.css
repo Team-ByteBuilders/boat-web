@@ -80,53 +80,6 @@ input::-webkit-inner-spin-button {
     cursor: not-allowed;
 }
 
-/* .extraDetails {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.extraDetails>.rememberMecheck {
-    accent-color: rgb(231, 158, 2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.extraDetails>.rememberMecheck>input {
-    cursor: pointer;
-}
-
-.extraDetails>.rememberMecheck>label {
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-
-.extraDetails>.forgotPassword>a {
-    font-size: 0.8rem;
-    color: #000;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.extraDetails>.forgotPassword>a:hover {
-    color: rgb(231, 158, 2)
-}
-
-.notamember {
-    margin-top: 20px;
-    font-size: 1rem;
-}
-
-.notamember>a {
-    text-decoration: none;
-    color: rgb(231, 158, 2);
-    font-weight: 600;
-} */
-
 @media only screen and (max-width: 760px) {
 
     .card>.signinImg {
@@ -151,18 +104,6 @@ input::-webkit-inner-spin-button {
 
     .card>.signinForm>div>button {
         height: 35px;
-        font-size: 0.8rem;
-    }
-
-    .extraDetails>.rememberMecheck>label {
-        font-size: 0.7rem;
-    }
-
-    .extraDetails>.forgotPassword>a {
-        font-size: 0.7rem;
-    }
-
-    .notamember {
         font-size: 0.8rem;
     }
 }

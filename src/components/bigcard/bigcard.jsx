@@ -12,14 +12,19 @@ const Bigcard = () => {
   }
   const token=localStorage.getItem("token");
   const handlebooknow = () => {
-     navigate(`/adduserimage/${state.name}`, {
-       state: {
-         image: state.image,
-         name: state.name,
-         details: state.details,
-         fees: state.fees,
-       },
-     });
+    if(token){
+      navigate(`/adduserimage/${state.name}`, {
+        state: {
+          image: state.image,
+          name: state.name,
+          details: state.details,
+          fees: state.fees,
+        },
+      });
+    }
+    else{
+      navigate("/login")
+    }
   }
   return (
     <div className="maindiv" style={{ backgroundColor: "#ccc" }}>
